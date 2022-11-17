@@ -12,7 +12,8 @@
         <li><a href="index.php?action=listFilms">vois liste des films</a></li>
         <li><a href="index.php?action=listRealisateurs">vois liste des realisateurs</a></li>
         <li><a href="index.php?action=listActeurs">vois liste des Acteurs</a></li>
-            
+        <li><a href="index.php?action=listRoles">vois liste des roles</a></li>
+        <li><a href="index.php?action=listGenres">vois liste des genres</a></li>  
         </ul>
     </nav>
     <h1>PDO cinéma</h1>

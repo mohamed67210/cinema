@@ -1,5 +1,5 @@
 <?php 
-
+$id = (isset($_GET["id"])) ? $_GET["id"] : null;
 use Controller\CinemaController;
 
 spl_autoload_register(function($class_name){
@@ -16,6 +16,12 @@ if(isset($_GET["action"])){
         case 'listActeurs':$ctrlCinema->listActeurs();
             break;
         case 'listRealisateurs':$ctrlCinema->listRealisateurs();
+            break;
+        case 'listRoles':$ctrlCinema->listRoles();
+            break;
+        case 'listGenres':$ctrlCinema->listGenres();
+            break;
+        case 'detailFilm':$ctrlCinema->detailFilm($id);
             break;
     }
 }else{

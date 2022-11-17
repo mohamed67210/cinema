@@ -1,7 +1,4 @@
-<!--  (temporisation de sortie) pour stocker le contenu dans une variable $contenu
- -->
 <?php ob_start() ?>
-<p>Il y'a  <?= $requete->rowCount() ?> films</p>
 <table>
     <thead>
         <tr>
@@ -12,8 +9,9 @@
     <tbody>
         <?php
             foreach($requete->fetchAll() as $film) { ?> 
+            
                 <tr>
-                    <td><a href="index.php?action=detailFilm&id=<?= $film['id_film']?>"><?= $film["nom_film"] ?></a></td>
+                    <td><?= $film["nom_film"] ?></a></td>
                     <td><?= $film["date_sortie"] ?></td>
                 </tr>    
         <?php } ?>
@@ -22,8 +20,8 @@
 
 <?php
 
-$titre = "liste des films";
-$titre_secondaire ="liste des films";
+$titre = $film["nom_film"] ;
+$titre_secondaire =$film["nom_film"] ;
 $contenu = ob_get_clean();
 require "view/template.php";
  ?>
