@@ -8,11 +8,15 @@
 </head>
 <body>
     <nav>
-        <a href="index.php?action=listFilms">vois liste des films</a><br>
-        <a href="index.php?action=listRealisateurs">vois liste des realisateurs</a><br>
-        <a href="index.php?action=listActeurs">vois liste des Acteurs</a>
-
-</nav>
+        <ul>
+        <li><a href="index.php?action=listFilms">vois liste des films</a></li>
+        <li><a href="index.php?action=listRealisateurs">vois liste des realisateurs</a></li>
+        <li><a href="index.php?action=listActeurs">vois liste des Acteurs</a></li>
+            
+        </ul>
+    </nav>
+    <h1>PDO cinéma</h1>
+    <h2><?= $titre_secondaire ?></h2>
 <?= $contenu ?>
 </body>
 </html>

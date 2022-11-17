@@ -25,8 +25,8 @@
 
 <?php
 
-$titre = "liste des films";
-$titre_secondaire ="liste des films";
+$titre = "liste des Realisateurs";
+$titre_secondaire ="liste des Realisateurs";
 $contenu = ob_get_clean();
 require "view/template.php";
  ?>
