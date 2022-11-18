@@ -35,6 +35,22 @@ class CinemaController
         require "view/listRoles.php";
     }
 
+    public function detailRole($id)
+    {
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->prepare("SELECT
+        nom_personne,prenom_personne
+    FROM
+        jouer
+    INNER JOIN acteur
+    ON jouer.id_acteur = acteur.id_acteur
+    INNER JOIN personne 
+    ON personne.id_personne = acteur.id_personne
+    WHERE id_role = :id");
+        $requete->execute(["id" => $id]);
+        require "view/detailRole.php";
+    }
+
     public function listGenres()
     {
         $pdo = Connect::seConnecter();
@@ -42,10 +58,11 @@ class CinemaController
         require "view/listGenres.php";
     }
 
-    public function detailGenre($id){
+    public function detailGenre($id)
+    {
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("SELECT nom_film,date_sortie FROM film INNER JOIN appartenir ON film.id_film = appartenir.id_film WHERE id_genre = :id");
-        $requete ->execute(["id" => $id]);
+        $requete->execute(["id" => $id]);
         require "view/detailGenre.php";
     }
 
