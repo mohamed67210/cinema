@@ -21,6 +21,24 @@
         <?php } ?>
     </tbody>
 </table>
+<h2>Filmographie</h2>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th>TITRE</th>
+            <th>DATE SORTIE</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        foreach ($requeteListFilms->fetchAll() as $film) { ?>
+            <tr>
+                <td><?= $film["nom_film"] ?></td>
+                <td><?= $film["date_sortie"] ?></td>
+            </tr>
+        <?php } ?>
+    </tbody>
+</table>
 
 <?php
 
