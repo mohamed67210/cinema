@@ -13,7 +13,7 @@
             
                 <tr>
                     <td><?= $film["nom_film"] ?></a></td>
-                    <td><?= $film["date_sortie"] ?></td>
+                    <td><?= $film["YEAR(date_sortie)"] ?></td>
                     <td><?= $film["nom_personne"].' '.$film["prenom_personne"] ?></td>
                 </tr>    
         <?php } ?>
@@ -23,8 +23,8 @@
 <table class="table table-dark">
     <thead>
         <tr>
-            <th>nom</th>
-            <th>prenom</th>
+            <th>nom d'acteur</th>
+            <th>prenom d'acteur</th>
             <th>Role</th>
         </tr>
     </thead>

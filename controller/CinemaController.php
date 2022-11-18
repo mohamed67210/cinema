@@ -70,7 +70,7 @@ class CinemaController
     {
         $pdo = Connect::seConnecter();
         // $requete = $pdo->prepare("SELECT * FROM film WHERE id_film = :id");
-        $requete = $pdo->prepare("SELECT nom_film,date_sortie,nom_personne,prenom_personne FROM  film INNER JOIN realisateur ON film.id_realisateur = realisateur.id_realisateur INNER JOIN personne 
+        $requete = $pdo->prepare("SELECT nom_film,YEAR(date_sortie),nom_personne,prenom_personne FROM  film INNER JOIN realisateur ON film.id_realisateur = realisateur.id_realisateur INNER JOIN personne 
         ON personne.id_personne=realisateur.id_personne WHERE id_film = :id");
         $requete->execute(["id" => $id]);
         $requeteCasting = $pdo->prepare("SELECT nom_personne,prenom_personne,nom_personnage FROM personne INNER JOIN acteur ON personne.id_personne=acteur.id_personne INNER JOIN jouer ON jouer.id_acteur = acteur.id_acteur INNER JOIN role ON jouer.id_role=role.id_role WHERE id_film = :id");
@@ -96,5 +96,21 @@ class CinemaController
         $requeteListFilms = $pdo->prepare("SELECT nom_film,date_sortie FROM film INNER JOIN jouer ON film.id_film = jouer.id_film WHERE id_acteur = :id");
         $requeteListFilms->execute(["id" => $id]);
         require "view/detailActeur.php";
+    }
+
+    public function formAjoutActeur(){
+        require 'view/formAjout/ajoutActeur.php';
+    }
+
+    public function ajouActeur($nom,$prenom,$dn,$sexe){
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->prepare("INSERT INTO personne VALUES('',:nom,:prenom,:dn,:sexe)");
+        $requete->execute([
+            "nom"=>$nom,
+            "prenom" => $prenom,
+            "dn" => $dn,
+            "sexe" => $sexe
+        ]);
+        require 'view/formAjout/ajoutActeur.php';
     }
 }

@@ -18,6 +18,13 @@
             <li><a href="index.php?action=listRoles">vois liste des roles</a></li>
             <li><a href="index.php?action=listGenres">vois liste des genres</a></li>
         </ul>
+        <ul>
+            <li><a href="index.php?action=formAjoutActeur">Ajout acteur</a></li>
+            <li><a href="index.php?action=ajoutrealisateur">Ajout realisateur</a></li>
+            <li><a href="index.php?action=ajoutFilm">Ajout film</a></li>
+            <li><a href="index.php?action=ajoutGenre">Ajout Genre</a></li>
+            <li><a href="index.php?action=ajouRole">Ajout Role</a></li>
+        </ul>
     </nav>
     <center><h1>PDO cinéma</h1></center>
     <h2><?= $titre_secondaire ?></h2>
