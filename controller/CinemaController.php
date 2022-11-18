@@ -98,19 +98,29 @@ class CinemaController
         require "view/detailActeur.php";
     }
 
-    public function formAjoutActeur(){
+    public function formAjoutActeur()
+    {
         require 'view/formAjout/ajoutActeur.php';
     }
 
-    public function ajouActeur($nom,$prenom,$dn,$sexe){
+    public function ajoutPersonne($nom, $prenom, $dn, $sexe)
+    {
         $pdo = Connect::seConnecter();
-        $requete = $pdo->prepare("INSERT INTO personne VALUES('',:nom,:prenom,:dn,:sexe)");
-        $requete->execute([
-            "nom"=>$nom,
+        $requetePersonne = $pdo->prepare("INSERT INTO personne VALUES('',:nom,:prenom,:dn,:sexe)");
+        $requetePersonne->execute([
+            "nom" => $nom,
             "prenom" => $prenom,
             "dn" => $dn,
             "sexe" => $sexe
         ]);
+        // require 'view/formAjout/ajoutActeur.php';
+    }
+
+    public function ajoutActeur()
+    {
+        $pdo = Connect::seConnecter();
+        
+        $requetePersonne = $pdo->query("INSERT INTO acteur SELECT MAX(id_personne) FROM personne");
         require 'view/formAjout/ajoutActeur.php';
     }
 }
