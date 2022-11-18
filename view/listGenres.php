@@ -1,5 +1,5 @@
 <?php ob_start() ?>
-<p>Il y'a  <?= $requete->rowCount() ?> roles</p>
+<p>Il y'a  <?= $requete->rowCount() ?> genres</p>
 <table>
     <thead>
         <tr>
