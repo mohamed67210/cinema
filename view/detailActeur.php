@@ -1,5 +1,5 @@
 <?php ob_start() ?>
-<table>
+<table class="table table-dark">
     <thead>
         <tr>
             <th>NOM</th>

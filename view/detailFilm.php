@@ -1,9 +1,10 @@
 <?php ob_start() ?>
-<table>
+<table class="table table-dark">
     <thead>
         <tr>
             <th>Titre</th>
             <th>ANNEE SORTIE</th>
+            <th>realisateur</th>
         </tr>
     </thead>
     <tbody>
@@ -13,6 +14,28 @@
                 <tr>
                     <td><?= $film["nom_film"] ?></a></td>
                     <td><?= $film["date_sortie"] ?></td>
+                    <td><?= $film["nom_personne"].' '.$film["prenom_personne"] ?></td>
+                </tr>    
+        <?php } ?>
+    </tbody>
+</table>
+<h2>Casting :</h2>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th>nom</th>
+            <th>prenom</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+            foreach($requeteCasting->fetchAll() as $casting) { ?> 
+            
+                <tr>
+                    <td><?= $casting["nom_personne"] ?></a></td>
+                    <td><?= $casting["prenom_personne"] ?></td>
+                    <td><?= $casting["nom_personnage"] ?></td>
                 </tr>    
         <?php } ?>
     </tbody>

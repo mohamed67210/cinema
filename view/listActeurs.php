@@ -1,6 +1,6 @@
 <?php ob_start() ?>
 <p>Il y'a  <?= $requete->rowCount() ?> acteurs</p>
-<table>
+<table class="table table-dark">
     <thead>
         <tr>
             <th>NOM</th>

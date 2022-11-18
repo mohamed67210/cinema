@@ -2,7 +2,7 @@
  -->
 <?php ob_start() ?>
 <p>Il y'a  <?= $requete->rowCount() ?> films</p>
-<table>
+<table class="table table-dark">
     <thead>
         <tr>
             <th>Titre</th>
