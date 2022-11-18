@@ -42,6 +42,13 @@ class CinemaController
         require "view/listGenres.php";
     }
 
+    public function detailGenre($id){
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->prepare("SELECT nom_film,date_sortie FROM film INNER JOIN appartenir ON film.id_film = appartenir.id_film WHERE id_genre = :id");
+        $requete ->execute(["id" => $id]);
+        require "view/detailGenre.php";
+    }
+
     public function detailFilm($id)
     {
         $pdo = Connect::seConnecter();
