@@ -27,6 +27,12 @@ class CinemaController
         $requete = $pdo->query("SELECT * FROM personne INNER JOIN realisateur ON personne.id_personne = realisateur.id_personne");
         require "view/listRealisateurs.php";
     }
+    public function listReal()
+    {
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->query("SELECT * FROM personne INNER JOIN realisateur ON personne.id_personne = realisateur.id_personne");
+        require "view/formAjout/ajoutFilm.php";
+    }
 
     public function listRoles()
     {
@@ -146,5 +152,26 @@ class CinemaController
         $requeteGenre = $pdo->prepare("INSERT INTO Genre VALUES('',:libelle)");
         $requeteGenre->execute(['libelle' => $libelle]);
         require 'view/formAjout/ajoutRealisateur.php';
+    }
+
+    public function formAjoutFilm()
+    {
+        require 'view/formAjout/ajoutFilm.php';
+    }
+
+    public function ajoutFilm($titre, $date, $duree, $resumee, $realisateur)
+    {
+        $pdo = Connect::seConnecter();
+        $requeteGenre = $pdo->prepare("INSERT INTO film VALUES('',:nom_film,:date_sortie,:duree_minute,:resumee_film,:id_realisateur)");
+        $requeteGenre->execute([
+            'nom_film' => $titre,
+            'date_sortie' => $date,
+            'duree_minute' => $duree,
+            'resumee_film' => $resumee,
+            'id_realisateur' => $realisateur
+        ]);
+
+
+        require 'view/formAjout/ajoutFilm.php';
     }
 }
