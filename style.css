@@ -71,3 +71,9 @@ img {
     justify-content: center;
     /* align-items: center; */
 }
+#info_container p{
+    color: black;
+}
+#info_container h4{
+    color: gray;
+}
