@@ -1,31 +1,21 @@
 <?php ob_start();
 foreach ($requete->fetchAll() as $film) { ?>
-    <div id="img_container">
-        <img src="<?php echo $film['affiche']; ?>" alt="" />
+    <div id="info_film">
+        <div id="img_container">
+            <img src="<?php echo $film['affiche']; ?>" alt="" />
+        </div>
+        <div id="info_container">
+            <h4>Titre : </h4>
+            <p><?= $film["nom_film"] ?></p>
+            <h4>année de sortie : </h4>
+            <p><?= $film["YEAR(date_sortie)"] ?></p>
+            <h4>Realiser par : </h4>
+            <p><?= $film["nom_personne"] . ' ' . $film["prenom_personne"] ?></p>
+        </div>
     </div>
 
 <?php } ?>
-<table class="table table-dark">
-    <thead>
-        <tr>
-            <th>Titre</th>
-            <th>ANNEE SORTIE</th>
-            <th>realisateur</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-        ?>
-
-        <tr>
-            <td><?= $film["nom_film"] ?></a></td>
-            <td><?= $film["YEAR(date_sortie)"] ?></td>
-            <td><?= $film["nom_personne"] . ' ' . $film["prenom_personne"] ?></td>
-        </tr>
-        <?php ?>
-    </tbody>
-</table>
-<h2>Casting :</h2>
+<h3>Casting :</h3>
 <table class="table table-dark">
     <thead>
         <tr>

@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <nav class="nav">
+    <nav>
         <ul>
             <li><a href="index.php?action=listFilms">Films</a></li>
             <li><a href="index.php?action=listRealisateurs">Realisateurs</a></li>
@@ -27,7 +27,6 @@
             <li><a href="index.php?action=ajouRole">Ajout Role</a></li>
         </ul>
     </nav>
-    <h1>PDO cinéma</h1>
     <h2><?= $titre_secondaire ?></h2>
     <div id="contenu_container"><?= $contenu ?></div>
 </body>
