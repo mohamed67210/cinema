@@ -11,11 +11,8 @@ $titre = (isset($_GET["nom_film"])) ? $_GET["nom_film"] : null;
 $date = (isset($_GET["date_sortie_film"])) ? $_GET["date_sortie_film"] : null;
 $duree = (isset($_GET["duree_minutes_film"])) ? $_GET["duree_minutes_film"] : null;
 $resumee = (isset($_GET["resumee_film"])) ? $_GET["resumee_film"] : null;
-$realisateur =(isset($_GET["realisateur"])) ? $_GET["realisateur"] : null;
-
-
-
-
+$realisateur = (isset($_GET["realisateur"])) ? $_GET["realisateur"] : null;
+$genre = (isset($_GET["genre"])) ? $_GET["genre"] : null;
 
 
 
@@ -81,10 +78,11 @@ if (isset($_GET["action"])) {
             break;
         case 'formAjoutFilm':
             $ctrlCinema->listReal();
-            // $ctrlCinema->formAjoutFilm();
+            // $ctrlCinema->listGenresforFilm();
             break;
         case 'ajoutFilm':
-            $ctrlCinema->ajoutFilm($titre,$date,$duree,$resumee,$realisateur);
+            $ctrlCinema->ajoutFilm($titre, $date, $duree, $resumee, $realisateur);
+            $ctrlCinema->choixGenre($genre);
             break;
     }
 }

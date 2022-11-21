@@ -29,6 +29,16 @@ ob_start()
             <?php } ?>
         </select>
     </div>
+    <div class="form-group">
+        <label for="sel1">Genre:</label>
+        <select class="form-control" id="sel1" name="genre" multiple>
+            <?php
+            foreach ($requetegenre as $genre) {
+                 ?>
+                <option value="<?= $genre['id_genre'] ?>"><?php echo $genre['libelle']  ?></option>
+            <?php } ?>
+        </select>
+    </div>
     <button type="submit" class="btn btn-primary">Ajouter</button>
 </form>
 <?php

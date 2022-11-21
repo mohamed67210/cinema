@@ -31,6 +31,7 @@ class CinemaController
     {
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("SELECT * FROM personne INNER JOIN realisateur ON personne.id_personne = realisateur.id_personne");
+        $requetegenre = $pdo->query("SELECT * FROM genre");
         require "view/formAjout/ajoutFilm.php";
     }
 
@@ -62,6 +63,12 @@ class CinemaController
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("SELECT * FROM genre ");
         require "view/listGenres.php";
+    }
+    public function listGenresforFilm()
+    {
+        $pdo = Connect::seConnecter();
+        $requetegenre = $pdo->query("SELECT * FROM genre");
+        require "view/formAjout/ajoutFilm.php";
     }
 
     public function detailGenre($id)
@@ -162,16 +169,20 @@ class CinemaController
     public function ajoutFilm($titre, $date, $duree, $resumee, $realisateur)
     {
         $pdo = Connect::seConnecter();
-        $requeteGenre = $pdo->prepare("INSERT INTO film VALUES('',:nom_film,:date_sortie,:duree_minute,:resumee_film,:id_realisateur)");
-        $requeteGenre->execute([
+        $requete = $pdo->prepare("INSERT INTO film VALUES('',:nom_film,:date_sortie,:duree_minute,:resumee_film,:id_realisateur)");
+        $requete->execute([
             'nom_film' => $titre,
             'date_sortie' => $date,
             'duree_minute' => $duree,
             'resumee_film' => $resumee,
             'id_realisateur' => $realisateur
         ]);
-
-
         require 'view/formAjout/ajoutFilm.php';
+    }
+    public function choixGenre($genre)
+    {
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->prepare("INSERT INTO appartenir (id_film,id_genre) VALUES((SELECT MAX(id_film) FROM film),:genre)");
+        $requete->execute(['genre' => $genre]);
     }
 }
