@@ -39,6 +39,10 @@ ob_start()
             <?php } ?>
         </select>
     </div>
+    <div class="form-group">
+        <label for="imgInput">lien de l'affiche</label>
+        <input type="text" class="form-control" id="imgInput" name="affiche" required>
+    </div>
     <button type="submit" class="btn btn-primary">Ajouter</button>
 </form>
 <?php
