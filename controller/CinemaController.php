@@ -119,8 +119,32 @@ class CinemaController
     public function ajoutActeur()
     {
         $pdo = Connect::seConnecter();
-        
-        $requetePersonne = $pdo->query("INSERT INTO acteur SELECT MAX(id_personne) FROM personne");
+        $requetePersonne = $pdo->query("INSERT INTO acteur(id_personne) SELECT MAX(id_personne) FROM personne");
         require 'view/formAjout/ajoutActeur.php';
+    }
+
+    public function formAjoutRealisateur()
+    {
+        require 'view/formAjout/ajoutRealisateur.php';
+    }
+
+    public function ajoutRealisateur()
+    {
+        $pdo = Connect::seConnecter();
+        $requetePersonne = $pdo->query("INSERT INTO realisateur(id_personne) SELECT MAX(id_personne) FROM personne");
+        require 'view/formAjout/ajoutRealisateur.php';
+    }
+
+    public function formAjoutGenre()
+    {
+        require 'view/formAjout/ajoutGenre.php';
+    }
+
+    public function ajoutGenre($libelle)
+    {
+        $pdo = Connect::seConnecter();
+        $requeteGenre = $pdo->prepare("INSERT INTO Genre VALUES('',:libelle)");
+        $requeteGenre->execute(['libelle' => $libelle]);
+        require 'view/formAjout/ajoutRealisateur.php';
     }
 }

@@ -4,6 +4,7 @@ $nom = (isset($_GET["nom_acteur"])) ? $_GET["nom_acteur"] : null;
 $prenom = (isset($_GET["prenom_acteur"])) ? $_GET["prenom_acteur"] : null;
 $dn = (isset($_GET["date_naissance_acteur"])) ? $_GET["date_naissance_acteur"] : null;
 $sexe = (isset($_GET["sexe_acteur"])) ? $_GET["sexe_acteur"] : null;
+$libelle = (isset($_GET["libelle"])) ? $_GET["libelle"] : null;
 
 
 
@@ -53,6 +54,19 @@ if (isset($_GET["action"])) {
         case 'ajoutActeur':
             $ctrlCinema->ajoutPersonne($nom, $prenom, $dn, $sexe);
             $ctrlCinema->ajoutActeur();
+            break;
+        case 'formatAjoutRealisateur':
+            $ctrlCinema->formAjoutRealisateur();
+            break;
+        case 'ajoutRealisateur':
+            $ctrlCinema->ajoutPersonne($nom, $prenom, $dn, $sexe);
+            $ctrlCinema->ajoutRealisateur();
+            break;
+        case 'formatAjoutGenre':
+            $ctrlCinema->formAjoutGenre();
+            break;
+        case 'ajoutGenre':
+            $ctrlCinema->ajoutGenre($libelle);
             break;
     }
 }
