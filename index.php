@@ -1,20 +1,20 @@
 
 <?php
-$id = (isset($_GET["id"])) ? $_GET["id"] : null;
-$nom = (isset($_POST["nom_acteur"])) ? $_POST["nom_acteur"] : null;
-$prenom = (isset($_POST["prenom_acteur"])) ? $_POST["prenom_acteur"] : null;
-$dn = (isset($_POST["date_naissance_acteur"])) ? $_POST["date_naissance_acteur"] : null;
-$sexe = (isset($_POST["sexe_acteur"])) ? $_POST["sexe_acteur"] : null;
+ $id = (isset($_GET["id"])) ? $_GET["id"] : null;
+// $nom = (isset($_POST["nom_acteur"])) ? $_POST["nom_acteur"] : null;
+// $prenom = (isset($_POST["prenom_acteur"])) ? $_POST["prenom_acteur"] : null;
+// $dn = (isset($_POST["date_naissance_acteur"])) ? $_POST["date_naissance_acteur"] : null;
+// $sexe = (isset($_POST["sexe_acteur"])) ? $_POST["sexe_acteur"] : null;
 // pour ajouter genre
-$libelle = (isset($_POST["libelle"])) ? $_POST["libelle"] : null;
-// pour ajouter film
-$titre = (isset($_POST["nom_film"])) ? $_POST["nom_film"] : null;
-$date = (isset($_POST["date_sortie_film"])) ? $_POST["date_sortie_film"] : null;
-$duree = (isset($_POST["duree_minutes_film"])) ? $_POST["duree_minutes_film"] : null;
-$resumee = (isset($_POST["resumee_film"])) ? $_POST["resumee_film"] : null;
-$realisateur = (isset($_POST["realisateur"])) ? $_POST["realisateur"] : null;
-$affiche = (isset($_POST["affiche"])) ? $_POST["affiche"] : null;
-$genre = (isset($_POST["genre"])) ? $_POST["genre"] : null;
+// $libelle = (isset($_POST["libelle"])) ? $_POST["libelle"] : null;
+// // pour ajouter film
+// $titre = (isset($_POST["nom_film"])) ? $_POST["nom_film"] : null;
+// $date = (isset($_POST["date_sortie_film"])) ? $_POST["date_sortie_film"] : null;
+// $duree = (isset($_POST["duree_minutes_film"])) ? $_POST["duree_minutes_film"] : null;
+// $resumee = (isset($_POST["resumee_film"])) ? $_POST["resumee_film"] : null;
+// $realisateur = (isset($_POST["realisateur"])) ? $_POST["realisateur"] : null;
+// $affiche = (isset($_POST["affiche"])) ? $_POST["affiche"] : null;
+// $genre = (isset($_POST["genre"])) ? $_POST["genre"] : null;
 
 
 
@@ -62,14 +62,14 @@ if (isset($_GET["action"])) {
             $ctrlCinema->formAjoutActeur();
             break;
         case 'ajoutActeur':
-            $ctrlCinema->ajoutPersonne($nom, $prenom, $dn, $sexe);
+            $ctrlCinema->ajoutPersonne();
             $ctrlCinema->ajoutActeur();
             break;
         case 'formatAjoutRealisateur':
             $ctrlCinema->formAjoutRealisateur();
             break;
         case 'ajoutRealisateur':
-            $ctrlCinema->ajoutPersonne($nom, $prenom, $dn, $sexe);
+            $ctrlCinema->ajoutPersonne();
             $ctrlCinema->ajoutRealisateur();
             break;
         case 'formatAjoutGenre':

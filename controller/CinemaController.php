@@ -10,7 +10,7 @@ class CinemaController
     public function listFilms()
     {
         $pdo = Connect::seConnecter();
-        $requete = $pdo->query("SELECT id_film,nom_film,date_sortie FROM film");
+        $requete = $pdo->query("SELECT * FROM film");
         require "view/listFilms.php";
     }
 
@@ -116,8 +116,12 @@ class CinemaController
         require 'view/formAjout/ajoutActeur.php';
     }
 
-    public function ajoutPersonne($nom, $prenom, $dn, $sexe)
+    public function ajoutPersonne()
     {
+        $nom = filter_input(INPUT_POST,'nom_acteur',FILTER_SANITIZE_SPECIAL_CHARS);
+        $prenom = filter_input(INPUT_POST,'prenom_acteur',FILTER_SANITIZE_SPECIAL_CHARS) ;
+        $dn = filter_input(INPUT_POST,'date_naissance_acteur',FILTER_SANITIZE_SPECIAL_CHARS);
+        $sexe = filter_input(INPUT_POST,'sexe_acteur',FILTER_SANITIZE_SPECIAL_CHARS);
         $pdo = Connect::seConnecter();
         $requetePersonne = $pdo->prepare("INSERT INTO personne VALUES('',:nom,:prenom,:dn,:sexe)");
         $requetePersonne->execute([

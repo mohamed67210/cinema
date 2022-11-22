@@ -1,5 +1,4 @@
 <?php
-
 ob_start()
 ?>
 <form action="index.php?action=ajoutFilm" method="POST">
@@ -26,7 +25,7 @@ ob_start()
             <?php
             foreach ($requete as $realisateur) { ?>
                 <option value="<?= $realisateur['id_realisateur'] ?>"><?php echo $realisateur['nom_personne'] ?></option>
-            <?php var_dump($requetegenre); } ?>
+            <?php } ?>
         </select>
     </div>
     <div class="form-group">
