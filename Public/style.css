@@ -151,7 +151,12 @@ img {
 #info_container h4 {
     color: gray;
 }
-
+#resumee{
+    background-color: white;
+}
+#resumee p{
+    color: black;
+}
 /* pour afficher list films */
 
 #films_container {

@@ -13,7 +13,10 @@ foreach ($requete->fetchAll() as $film) { ?>
             <p><?= $film["nom_personne"] . ' ' . $film["prenom_personne"] ?></p>
         </div>
     </div>
-
+    <div id="resumee">
+        <h4>Synopsis</h3>
+        <p><?= $film['resume_film']; ?></p>
+    </div>
 <?php } ?>
 <h3>Casting :</h3>
 <table class="table table-dark">
