@@ -15,31 +15,31 @@ foreach ($requete->fetchAll() as $film) { ?>
     </div>
     <div id="resumee">
         <h4>Synopsis</h3>
-        <p><?= $film['resume_film']; ?></p>
+            <p><?= $film['resume_film']; ?></p>
     </div>
 <?php } ?>
-<h3>Casting :</h3>
-<table class="table table-dark">
-    <thead>
-        <tr>
-            <th>nom d'acteur</th>
-            <th>prenom d'acteur</th>
-            <th>Role</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-        foreach ($requeteCasting->fetchAll() as $casting) { ?>
-
+<div id="casting">
+    <h3>Acteurs et actrice :</h3>
+    <table class="table table-dark">
+        <thead>
             <tr>
-                <td><?= $casting["nom_personne"] ?></a></td>
-                <td><?= $casting["prenom_personne"] ?></td>
-                <td><?= $casting["nom_personnage"] ?></td>
+                <th>nom d'acteur</th>
+                <th>prenom d'acteur</th>
+                <th>Role</th>
             </tr>
-        <?php } ?>
-    </tbody>
-</table>
-
+        </thead>
+        <tbody>
+            <?php
+            foreach ($requeteCasting->fetchAll() as $casting) { ?>
+                <tr>
+                    <td><?= $casting["nom_personne"] ?></a></td>
+                    <td><?= $casting["prenom_personne"] ?></td>
+                    <td><?= $casting["nom_personnage"] ?></td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+</div>
 <?php
 
 $titre = $film["nom_film"];

@@ -157,6 +157,10 @@ img {
 #resumee p{
     color: black;
 }
+#casting{
+    border-color: aqua;
+    width: 100%;
+}
 /* pour afficher list films */
 
 #films_container {
