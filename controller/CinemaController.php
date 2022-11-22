@@ -153,8 +153,9 @@ class CinemaController
         require 'view/formAjout/ajoutGenre.php';
     }
 
-    public function ajoutGenre($libelle)
+    public function ajoutGenre()
     {
+        $libelle = filter_input(INPUT_POST,'libelle',FILTER_SANITIZE_SPECIAL_CHARS);
         $pdo = Connect::seConnecter();
         $requeteGenre = $pdo->prepare("INSERT INTO Genre VALUES('',:libelle)");
         $requeteGenre->execute(['libelle' => $libelle]);

@@ -1,6 +1,6 @@
 
 <?php
-$id = (isset($_POST["id"])) ? $_POST["id"] : null;
+$id = (isset($_GET["id"])) ? $_GET["id"] : null;
 $nom = (isset($_POST["nom_acteur"])) ? $_POST["nom_acteur"] : null;
 $prenom = (isset($_POST["prenom_acteur"])) ? $_POST["prenom_acteur"] : null;
 $dn = (isset($_POST["date_naissance_acteur"])) ? $_POST["date_naissance_acteur"] : null;
@@ -76,7 +76,7 @@ if (isset($_GET["action"])) {
             $ctrlCinema->formAjoutGenre();
             break;
         case 'ajoutGenre':
-            $ctrlCinema->ajoutGenre($libelle);
+            $ctrlCinema->ajoutGenre();
             break;
         case 'formAjoutFilm':
             $ctrlCinema->listReal();
