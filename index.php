@@ -1,20 +1,20 @@
 
 <?php
-$id = (isset($_GET["id"])) ? $_GET["id"] : null;
-$nom = (isset($_GET["nom_acteur"])) ? $_GET["nom_acteur"] : null;
-$prenom = (isset($_GET["prenom_acteur"])) ? $_GET["prenom_acteur"] : null;
-$dn = (isset($_GET["date_naissance_acteur"])) ? $_GET["date_naissance_acteur"] : null;
-$sexe = (isset($_GET["sexe_acteur"])) ? $_GET["sexe_acteur"] : null;
+$id = (isset($_POST["id"])) ? $_POST["id"] : null;
+$nom = (isset($_POST["nom_acteur"])) ? $_POST["nom_acteur"] : null;
+$prenom = (isset($_POST["prenom_acteur"])) ? $_POST["prenom_acteur"] : null;
+$dn = (isset($_POST["date_naissance_acteur"])) ? $_POST["date_naissance_acteur"] : null;
+$sexe = (isset($_POST["sexe_acteur"])) ? $_POST["sexe_acteur"] : null;
 // pour ajouter genre
-$libelle = (isset($_GET["libelle"])) ? $_GET["libelle"] : null;
+$libelle = (isset($_POST["libelle"])) ? $_POST["libelle"] : null;
 // pour ajouter film
-$titre = (isset($_GET["nom_film"])) ? $_GET["nom_film"] : null;
-$date = (isset($_GET["date_sortie_film"])) ? $_GET["date_sortie_film"] : null;
-$duree = (isset($_GET["duree_minutes_film"])) ? $_GET["duree_minutes_film"] : null;
-$resumee = (isset($_GET["resumee_film"])) ? $_GET["resumee_film"] : null;
-$realisateur = (isset($_GET["realisateur"])) ? $_GET["realisateur"] : null;
-$affiche = (isset($_GET["affiche"])) ? $_GET["affiche"] : null;
-$genre = (isset($_GET["genre"])) ? $_GET["genre"] : null;
+$titre = (isset($_POST["nom_film"])) ? $_POST["nom_film"] : null;
+$date = (isset($_POST["date_sortie_film"])) ? $_POST["date_sortie_film"] : null;
+$duree = (isset($_POST["duree_minutes_film"])) ? $_POST["duree_minutes_film"] : null;
+$resumee = (isset($_POST["resumee_film"])) ? $_POST["resumee_film"] : null;
+$realisateur = (isset($_POST["realisateur"])) ? $_POST["realisateur"] : null;
+$affiche = (isset($_POST["affiche"])) ? $_POST["affiche"] : null;
+$genre = (isset($_POST["genre"])) ? $_POST["genre"] : null;
 
 
 

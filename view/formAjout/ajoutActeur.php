@@ -1,6 +1,6 @@
 <?php ob_start() ?>
-<form action="index.php" method="GET">
-    <input type="text" class="form-control"  name="action" value="ajoutActeur" readonly hidden>
+<form action="index.php?action=ajoutActeur" method="POST">
+    <!-- <input type="text" class="form-control"  name="action" value="ajoutActeur" readonly hidden> -->
     <div class="form-group">
         <label for="nomInput">nom d'acteur</label>
         <input type="text" class="form-control" id="nomInput" placeholder="Entrer Nom" name="nom_acteur" required>

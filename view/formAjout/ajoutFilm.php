@@ -2,8 +2,8 @@
 
 ob_start()
 ?>
-<form action="index.php" method="GET">
-    <input type="text" class="form-control" name="action" value="ajoutFilm" readonly hidden>
+<form action="index.php?action=ajoutFilm" method="POST">
+    <!-- <input type="text" class="form-control" name="action" value="ajoutFilm" readonly hidden> -->
     <div class="form-group">
         <label for="nomInput">Titre</label>
         <input type="text" class="form-control" id="nomInput" name="nom_film" required>
@@ -26,7 +26,7 @@ ob_start()
             <?php
             foreach ($requete as $realisateur) { ?>
                 <option value="<?= $realisateur['id_realisateur'] ?>"><?php echo $realisateur['nom_personne'] ?></option>
-            <?php } ?>
+            <?php var_dump($requetegenre); } ?>
         </select>
     </div>
     <div class="form-group">

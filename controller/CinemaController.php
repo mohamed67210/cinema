@@ -64,12 +64,12 @@ class CinemaController
         $requete = $pdo->query("SELECT * FROM genre ");
         require "view/listGenres.php";
     }
-    public function listGenresforFilm()
-    {
-        $pdo = Connect::seConnecter();
-        $requetegenre = $pdo->query("SELECT * FROM genre");
-        require "view/formAjout/ajoutFilm.php";
-    }
+    // public function listGenresforFilm()
+    // {
+    //     $pdo = Connect::seConnecter();
+    //     $requetegenre = $pdo->query("SELECT * FROM genre");
+    //     require "view/formAjout/ajoutFilm.php";
+    // }
 
     public function detailGenre($id)
     {
@@ -178,7 +178,7 @@ class CinemaController
             'id_realisateur' => $realisateur,
             'affiche' => $affiche
         ]);
-        require 'view/formAjout/ajoutFilm.php';
+        header("location:index.php?action=formAjoutFilm") ;
     }
     public function choixGenre($genre)
     {
