@@ -167,8 +167,14 @@ class CinemaController
         require 'view/formAjout/ajoutFilm.php';
     }
 
-    public function ajoutFilm($titre, $date, $duree, $resumee, $realisateur,$affiche)
+    public function ajoutFilm()
     {
+        $titre = filter_input(INPUT_POST,'nom_film',FILTER_SANITIZE_SPECIAL_CHARS);
+        $date = filter_input(INPUT_POST,'date_sortie_film',FILTER_SANITIZE_SPECIAL_CHARS);
+        $duree = filter_input(INPUT_POST,'duree_minutes_film',FILTER_SANITIZE_NUMBER_INT);
+        $resumee = filter_input(INPUT_POST,'resumee_film',FILTER_SANITIZE_SPECIAL_CHARS);
+        $realisateur = filter_input(INPUT_POST,'realisateur',FILTER_SANITIZE_SPECIAL_CHARS);
+        $affiche = filter_input(INPUT_POST,'affiche',FILTER_SANITIZE_SPECIAL_CHARS);
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("INSERT INTO film VALUES('',:nom_film,:date_sortie,:duree_minute,:resumee_film,:id_realisateur,:affiche)");
         $requete->execute([

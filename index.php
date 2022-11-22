@@ -83,7 +83,7 @@ if (isset($_GET["action"])) {
             // $ctrlCinema->listGenresforFilm();
             break;
         case 'ajoutFilm':
-            $ctrlCinema->ajoutFilm($titre, $date, $duree, $resumee, $realisateur,$affiche);
+            $ctrlCinema->ajoutFilm();
             $ctrlCinema->choixGenre($genre);
             break;
     }
