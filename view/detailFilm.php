@@ -20,25 +20,15 @@ foreach ($requete->fetchAll() as $film) { ?>
 <?php } ?>
 <div id="casting">
     <h3>Acteurs et actrice :</h3>
-    <table class="table table-dark">
-        <thead>
-            <tr>
-                <th>nom d'acteur</th>
-                <th>prenom d'acteur</th>
-                <th>Role</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            foreach ($requeteCasting->fetchAll() as $casting) { ?>
-                <tr>
-                    <td><?= $casting["nom_personne"] ?></a></td>
-                    <td><?= $casting["prenom_personne"] ?></td>
-                    <td><?= $casting["nom_personnage"] ?></td>
-                </tr>
-            <?php } ?>
-        </tbody>
-    </table>
+    <div id="acteurs_container">
+        <?php
+        foreach ($requeteCasting->fetchAll() as $acteur) { ?>
+            <div id="acteur_container">
+                <h3><?= $acteur["prenom_personne"] . $acteur["nom_personne"] ?></h3>
+                <h5><?= $acteur["nom_personnage"] ?></h5>
+            </div>
+        <?php } ?>
+    </div>
 </div>
 <?php
 
