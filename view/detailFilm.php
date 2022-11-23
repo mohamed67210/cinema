@@ -7,10 +7,14 @@ foreach ($requete->fetchAll() as $film) { ?>
         <div id="info_container">
             <h4>Titre : </h4>
             <p><?= $film["nom_film"] ?></p>
-            <h4>année de sortie : </h4>
+            <h4>Année de sortie : </h4>
             <p><?= $film["YEAR(date_sortie)"] ?></p>
             <h4>Realiser par : </h4>
             <p><?= $film["nom_personne"] . ' ' . $film["prenom_personne"] ?></p>
+            <h4>Genre : </h4>
+            <?php foreach ($requeteGenre->fetchAll() as $genre) { ?>
+                <p><?= $genre["libelle"] ?></p>
+            <?php } ?>
         </div>
     </div>
     <div id="resumee">
@@ -24,7 +28,8 @@ foreach ($requete->fetchAll() as $film) { ?>
         <?php
         foreach ($requeteCasting->fetchAll() as $acteur) { ?>
             <div id="acteur_container">
-                <h5><?= $acteur["prenom_personne"] .' '. $acteur["nom_personne"] ?></h5>
+                <h5><?= $acteur["prenom_personne"] . ' ' . $acteur["nom_personne"] ?></h5>
+                <p>Role :</p>
                 <h6><?= $acteur["nom_personnage"] ?></h6>
             </div>
         <?php } ?>

@@ -158,6 +158,7 @@ img {
 
 #resumee {
     background-color: white;
+    padding: 2%;
 }
 
 #resumee p {
@@ -193,6 +194,10 @@ img {
 
 #acteur_container h5 {
     color: black;
+}
+#acteur_container p{
+    color: gray;
+    font-size: x-small;
 }
 
 /* pour afficher list films */
@@ -235,6 +240,9 @@ img {
 .titre {
     height: 10%;
     background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .titre a {

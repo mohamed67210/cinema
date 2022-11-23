@@ -10,7 +10,7 @@ class CinemaController
     public function listFilms()
     {
         $pdo = Connect::seConnecter();
-        $requete = $pdo->query("SELECT * FROM film");
+        $requete = $pdo->query("SELECT * FROM film ORDER BY id_film DESC");
         require "view/listFilms.php";
     }
 
@@ -88,6 +88,8 @@ class CinemaController
         $requete = $pdo->prepare("SELECT nom_film,YEAR(date_sortie),nom_personne,prenom_personne,affiche,resume_film FROM  film INNER JOIN realisateur ON film.id_realisateur = realisateur.id_realisateur INNER JOIN personne 
         ON personne.id_personne=realisateur.id_personne WHERE id_film = :id");
         $requete->execute(["id" => $id]);
+        $requeteGenre = $pdo->prepare("SELECT libelle FROM genre INNER JOIN appartenir ON genre.id_genre = appartenir.id_genre WHERE appartenir.id_film = :id");
+        $requeteGenre->execute(['id'=>$id]);
         $requeteCasting = $pdo->prepare("SELECT nom_personne,prenom_personne,nom_personnage FROM personne INNER JOIN acteur ON personne.id_personne=acteur.id_personne INNER JOIN jouer ON jouer.id_acteur = acteur.id_acteur INNER JOIN role ON jouer.id_role=role.id_role WHERE id_film = :id");
         $requeteCasting->execute(["id" => $id]);
         require "view/detailFilm.php";
