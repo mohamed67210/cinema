@@ -30,7 +30,7 @@ ob_start()
     </div>
     <div class="form-group">
         <label for="sel1">Genre:</label>
-        <select class="form-control" id="sel1" name="genre" multiple>
+        <select class="form-control" id="sel1" name="genre[]" multiple>
             <?php
             foreach ($requetegenre as $genre) {
                  ?>

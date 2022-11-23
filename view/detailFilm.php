@@ -12,9 +12,11 @@ foreach ($requete->fetchAll() as $film) { ?>
             <h4>Realiser par : </h4>
             <p><?= $film["nom_personne"] . ' ' . $film["prenom_personne"] ?></p>
             <h4>Genre : </h4>
-            <?php foreach ($requeteGenre->fetchAll() as $genre) { ?>
-                <p><?= $genre["libelle"] ?></p>
-            <?php } ?>
+            <div id="genres_container">
+                <?php foreach ($requeteGenre->fetchAll() as $genre) { ?>
+                    <p class="genre"><?= $genre["libelle"] ?>&nbsp</p>
+                <?php } ?>
+            </div>
         </div>
     </div>
     <div id="resumee">
