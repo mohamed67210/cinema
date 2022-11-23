@@ -227,7 +227,6 @@ class CinemaController
         $requete->execute([
             "film" => $film,
             "acteur" => $acteur,
-            // "role" => $role
         ]);
         header("location:index.php?action=formAjoutCasting");
     }
