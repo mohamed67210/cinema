@@ -2,7 +2,7 @@
 foreach ($requete->fetchAll() as $film) { ?>
     <div id="info_film">
         <div id="like_button">
-            <a href="#">
+            <a href="index.php?action=updateLike&id=<?= $film['id_film'] ?>">
                 <p>❤️</p>
             </a>
         </div>

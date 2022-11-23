@@ -93,5 +93,8 @@ if (isset($_GET["action"])) {
         case 'ajoutCasting':
             $ctrlCinema->ajoutCasting();
             break;
+        case 'updateLike':
+            $ctrlCinema->updateLike($id);
+            break;
     }
 }

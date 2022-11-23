@@ -85,7 +85,7 @@ class CinemaController
     {
         $pdo = Connect::seConnecter();
         // $requete = $pdo->prepare("SELECT * FROM film WHERE id_film = :id");
-        $requete = $pdo->prepare("SELECT nom_film,YEAR(date_sortie),nom_personne,prenom_personne,affiche,resume_film FROM  film INNER JOIN realisateur ON film.id_realisateur = realisateur.id_realisateur INNER JOIN personne 
+        $requete = $pdo->prepare("SELECT id_film,nom_film,YEAR(date_sortie),nom_personne,prenom_personne,affiche,resume_film FROM  film INNER JOIN realisateur ON film.id_realisateur = realisateur.id_realisateur INNER JOIN personne 
         ON personne.id_personne=realisateur.id_personne WHERE id_film = :id");
         $requete->execute(["id" => $id]);
         $requeteGenre = $pdo->prepare("SELECT libelle FROM genre INNER JOIN appartenir ON genre.id_genre = appartenir.id_genre WHERE appartenir.id_film = :id");
@@ -183,7 +183,7 @@ class CinemaController
         $resumee = filter_input(INPUT_POST, 'resumee_film', FILTER_SANITIZE_SPECIAL_CHARS);
         $realisateur = filter_input(INPUT_POST, 'realisateur', FILTER_SANITIZE_SPECIAL_CHARS);
         $affiche = filter_input(INPUT_POST, 'affiche', FILTER_SANITIZE_SPECIAL_CHARS);
-         $genre = filter_input(INPUT_POST, 'genre', FILTER_DEFAULT,FILTER_FORCE_ARRAY);
+        $genre = filter_input(INPUT_POST, 'genre', FILTER_DEFAULT, FILTER_FORCE_ARRAY);
         // $genre = $_POST['genre'];
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("INSERT INTO film VALUES('',:nom_film,:date_sortie,:duree_minute,:resumee_film,:id_realisateur,:affiche)");
@@ -230,5 +230,13 @@ class CinemaController
             // "role" => $role
         ]);
         header("location:index.php?action=formAjoutCasting");
+    }
+
+    public function updateLike($id)
+    {
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->prepare("UPDATE film SET nb_like = nb_like + 1 WHERE id_film = :id");
+        $requete->execute(['id' => $id]);
+        header("location:index.php?action=detailFilm&id=$id");
     }
 }
