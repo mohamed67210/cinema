@@ -183,8 +183,8 @@ class CinemaController
         $resumee = filter_input(INPUT_POST, 'resumee_film', FILTER_SANITIZE_SPECIAL_CHARS);
         $realisateur = filter_input(INPUT_POST, 'realisateur', FILTER_SANITIZE_SPECIAL_CHARS);
         $affiche = filter_input(INPUT_POST, 'affiche', FILTER_SANITIZE_SPECIAL_CHARS);
-        // $genre = filter_input(INPUT_POST, 'genre', FILTER_SANITIZE_SPECIAL_CHARS);
-        $genre = $_POST['genre'];
+         $genre = filter_input(INPUT_POST, 'genre', FILTER_DEFAULT,FILTER_FORCE_ARRAY);
+        // $genre = $_POST['genre'];
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("INSERT INTO film VALUES('',:nom_film,:date_sortie,:duree_minute,:resumee_film,:id_realisateur,:affiche)");
         $requete->execute([
