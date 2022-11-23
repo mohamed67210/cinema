@@ -154,6 +154,7 @@ img {
 #genres_container{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 #info_container .genre{
     font-size: large;
