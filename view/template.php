@@ -32,7 +32,8 @@
             <li><a href="index.php?action=formatAjoutRealisateur">+ realisateur</a></li>
             <li><a href="index.php?action=formAjoutFilm">+ film</a></li>
             <li><a href="index.php?action=formatAjoutGenre">+ Genre</a></li>
-            <li><a href="index.php?action=ajouRole">+ Role</a></li>
+            <li><a href="index.php?action=formAjoutCasting">+ casting</a></li>
+            <!-- <li><a href="index.php?action=ajouRole">+ Role</a></li> -->
         </ul>
     </div>
     <h2><?= $titre_secondaire ?></h2>
