@@ -19,13 +19,13 @@ foreach ($requete->fetchAll() as $film) { ?>
     </div>
 <?php } ?>
 <div id="casting">
-    <h3>Acteurs et actrice :</h3>
+    <h4>Acteurs et actrice </h4>
     <div id="acteurs_container">
         <?php
         foreach ($requeteCasting->fetchAll() as $acteur) { ?>
             <div id="acteur_container">
-                <h3><?= $acteur["prenom_personne"] . $acteur["nom_personne"] ?></h3>
-                <h5><?= $acteur["nom_personnage"] ?></h5>
+                <h5><?= $acteur["prenom_personne"] .' '. $acteur["nom_personne"] ?></h5>
+                <h6><?= $acteur["nom_personnage"] ?></h6>
             </div>
         <?php } ?>
     </div>

@@ -25,15 +25,17 @@ nav {
     position: fixed;
     top: 0;
 }
-#link{
+
+#link {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     /* background-color: blueviolet; */
 }
-nav ul  {
-    
+
+nav ul {
+
     /* background-color: aqua; */
     display: flex;
     flex-direction: row;
@@ -67,9 +69,11 @@ nav ul li {
 #nav_ajout ul li {
     list-style: none;
 }
-#nav_ajout a{
+
+#nav_ajout a {
     color: white;
 }
+
 .user li {
     border: none;
 }
@@ -151,21 +155,44 @@ img {
 #info_container h4 {
     color: gray;
 }
-#resumee{
+
+#resumee {
     background-color: white;
 }
-#resumee p{
+
+#resumee p {
     color: black;
 }
-#casting{
+
+#casting {
+    width: 100%;
+    margin-top: 5%;
     width: 100%;
     display: flex;
     flex-direction: column;
+    background-color: white;
+    padding: 2%;
 }
-#acteurs_container{
+
+#acteurs_container {
     display: flex;
     flex-wrap: wrap;
-    
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+#acteur_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid brown;
+    padding: 2%;
+}
+
+#acteur_container h5 {
+    color: black;
 }
 
 /* pour afficher list films */
