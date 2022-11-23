@@ -13,7 +13,7 @@
 <body>
     <nav>
         <div>
-            <h1>PDO CINEMA</h1>
+            <a href="index.php?action=listFilms"><h1>PDO CINEMA</h1></a>
         </div>
         <div id="right">
             <div id="link">
