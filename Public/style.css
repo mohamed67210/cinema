@@ -197,6 +197,7 @@ img {
     align-items: center;
     border: 1px solid brown;
     padding: 2%;
+    width: 25%;
 }
 
 #acteur_container h5 {
