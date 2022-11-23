@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="Public/style.css">
     <title><?= $titre ?></title>
 </head>
@@ -15,15 +15,22 @@
         <div>
             <h1>PDO CINEMA</h1>
         </div>
-        <div id="link">
-            <ul>
-                <li><a href="index.php?action=listFilms">Films</a></li>
-                <li><a href="index.php?action=listRealisateurs">Realisateurs</a></li>
-                <li><a href="index.php?action=listActeurs">Acteurs</a></li>
-                <li><a href="index.php?action=listRoles">Roles</a></li>
-                <li><a href="index.php?action=listGenres">Genres</a></li>
-            </ul>
+        <div id="right">
+            <div id="link">
+                <ul>
+                    <li><a href="index.php?action=listFilms">Films</a></li>
+                    <li><a href="index.php?action=listRealisateurs">Realisateurs</a></li>
+                    <li><a href="index.php?action=listActeurs">Acteurs</a></li>
+                    <li><a href="index.php?action=listRoles">Roles</a></li>
+                    <li><a href="index.php?action=listGenres">Genres</a></li>
+                </ul>
+            </div>
+            <div id="search_bar">
+                <input type="text" name="search" id="search_input">
+                <a href="#">chercher</a>
+            </div>
         </div>
+
     </nav>
     <div id="nav_ajout">
         <h5>Admin Panel</h5>
@@ -36,7 +43,7 @@
             <!-- <li><a href="index.php?action=ajouRole">+ Role</a></li> -->
         </ul>
     </div>
-    <h2><?= $titre_secondaire ?></h2>
+    <!-- <h2><?= $titre_secondaire ?></h2> -->
     <div id="contenu_container"><?= $contenu ?></div>
 </body>
 

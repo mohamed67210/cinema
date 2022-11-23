@@ -20,14 +20,21 @@ nav {
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    height: auto;
-    margin-bottom: 20px;
+    height: 20%;
     position: fixed;
     top: 0;
     z-index: 99;
 }
 nav h1{
     color: grey;
+}
+#right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: green; */
+    gap: 15px;
 }
 #link {
     display: flex;
@@ -54,7 +61,23 @@ nav ul li {
     padding: 3px;
     min-width: 100px;
 }
-
+#search_bar{
+    background-color: white;
+    width: 90%;
+    height: 100%;
+}
+#search_input{
+    float: left;
+    width: 80%;
+    border: none;
+}
+#search_bar a{
+    background-color: gray;
+    color: white;
+    text-decoration: none;
+    float: right;
+    width: 20%;
+}
 #nav_ajout {
     position: fixed;
     right: 0;
@@ -109,7 +132,7 @@ label {
 }
 
 #contenu_container {
-    margin-top: 5%;
+    margin-top: 8%;
     display: flex;
     flex-direction: column;
     background-color: brown;
@@ -165,7 +188,8 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
+    gap: 20px;
 }
 
 #info_container p {
@@ -239,6 +263,7 @@ img {
     align-items: center;
     gap: 10px;
     width: 90%;
+    margin-top: 5%;
 }
 
 #film_container {

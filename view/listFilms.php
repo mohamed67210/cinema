@@ -1,7 +1,7 @@
 <!--  (temporisation de sortie) pour stocker le contenu dans une variable $contenu
  -->
 <?php ob_start() ?>
-<p>Il y'a <?= $requete->rowCount() ?> films</p>
+<p>TOTAL : <?= $requete->rowCount() ?> films</p>
 
 
 <div id="films_container">
