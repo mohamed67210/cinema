@@ -8,6 +8,9 @@
     <?php
     foreach ($requete->fetchAll() as $film) { ?>
         <div id="film_container">
+            <div class="like">
+                <p><?= $film['nb_like'] ?> ⭐</p>
+            </div>
             <div class="affiche_container">
                 <img src="<?= $film['affiche'] ?>" alt="affiche">
             </div>

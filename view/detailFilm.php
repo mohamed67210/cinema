@@ -1,6 +1,11 @@
 <?php ob_start();
 foreach ($requete->fetchAll() as $film) { ?>
     <div id="info_film">
+        <div id="like_button">
+            <a href="#">
+                <p>❤️</p>
+            </a>
+        </div>
         <div id="img_container">
             <img src="<?php echo $film['affiche']; ?>" alt="" />
         </div>
