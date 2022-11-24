@@ -9,10 +9,10 @@
     foreach ($requete->fetchAll() as $film) { ?>
         <div id="film_container">
             <div class="like">
-                <p><?= $film['nb_like'] ?> ⭐</p>
+                <p><?= $film['nb_like'] ?> 👍</p>
             </div>
             <div class="affiche_container">
-                <img src="<?= $film['affiche'] ?>" alt="affiche">
+                <a href="index.php?action=detailFilm&id=<?= $film['id_film'] ?>"><img src="<?= $film['affiche'] ?>" alt="affiche"></a>
             </div>
             <div class="titre"><a href="index.php?action=detailFilm&id=<?= $film['id_film'] ?>"><?= $film['nom_film'] ?></a></div>
         </div>
