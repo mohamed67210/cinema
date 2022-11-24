@@ -1,4 +1,5 @@
-<?php ob_start();
+<?php
+ob_start();
 foreach ($requete->fetchAll() as $film) { ?>
     <div id="info_film">
         <div id="like_button">

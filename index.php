@@ -1,5 +1,6 @@
 
 <?php
+session_start();
 $id = (isset($_GET["id"])) ? $_GET["id"] : null;
 // $nom = (isset($_POST["nom_acteur"])) ? $_POST["nom_acteur"] : null;
 // $prenom = (isset($_POST["prenom_acteur"])) ? $_POST["prenom_acteur"] : null;
