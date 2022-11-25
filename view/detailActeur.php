@@ -1,45 +1,35 @@
 <?php ob_start() ?>
-<table class="table table-dark">
-    <thead>
-        <tr>
-            <th>NOM</th>
-            <th>PRENOM</th>
-            <th>DATE NAISSANCE</th>
-            <th>SEXE</th>
 
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-        foreach ($requete->fetchAll() as $acteur) { ?>
-            <tr>
-                <td><?= $acteur["nom_personne"] ?></td>
-                <td><?= $acteur["prenom_personne"] ?></td>
-                <td><?= $acteur["date_naissance_personne"] ?></td>
-                <td><?= $acteur["sexe_personne"] ?></td>
-            </tr>
-        <?php } ?>
-    </tbody>
-</table>
-<h2>Filmographie</h2>
-<table class="table table-dark">
-    <thead>
-        <tr>
-            <th>TITRE</th>
-            <th>DATE SORTIE</th>
-        </tr>
-    </thead>
-    <tbody>
+<?php
+foreach ($requete->fetchAll() as $acteur) { ?>
+    <div class="personne_detail_container">
+        <div class="personne_img_container">
+            <img src="<?= $acteur["photo_acteur"] ?>" alt="">
+        </div>
+        <div class="personne_info_container">
+            <h5>Nom : <?= $acteur["nom_personne"] ?></h5>
+            <h5>Prenom : <?= $acteur["prenom_personne"] ?></h5>
+            <h5>Date de naissance : <?= $acteur["date_naissance_personne"] ?></h5>
+            <h5>Sexe : <?= $acteur["sexe_personne"] ?></h5>
+        </div>
+
+    </div>
+<?php } ?>
+<div class="filmographie_container">
+    <h2>Filmographie</h2>
+    <div class="carts_container">
         <?php
         foreach ($requeteListFilms->fetchAll() as $film) { ?>
-            <tr>
-                <td><?= $film["nom_film"] ?></td>
-                <td><?= $film["date_sortie"] ?></td>
-            </tr>
+            <div class="cart">
+                <div class="cart_img">
+                    <img src="<?= $film["affiche"] ?>" alt="">
+                </div>
+                <h5 id="biographie_film_title"><?= $film["nom_film"]?></h5>
+                <h6><?= $film["date_sortie"] ?></h6>
+            </div>
         <?php } ?>
-    </tbody>
-</table>
-
+    </div>
+</div>
 <?php
 
 $titre = "detail sur l'acteur : " . $acteur["nom_personne"];

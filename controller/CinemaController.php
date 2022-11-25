@@ -100,7 +100,7 @@ class CinemaController
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("SELECT * FROM personne INNER JOIN realisateur ON personne.id_personne = realisateur.id_personne WHERE id_realisateur = :id");
         $requete->execute(["id" => $id]);
-        $requeteListFilms = $pdo->prepare("SELECT * FROM film INNER JOIN realisateur ON   realisateur.id_realisateur = film.id_realisateur WHERE id_personne = :id");
+        $requeteListFilms = $pdo->prepare("SELECT * FROM film  WHERE id_realisateur = :id");
         $requeteListFilms->execute(["id" => $id]);
         require "view/detailRealisateur.php";
     }
@@ -110,7 +110,7 @@ class CinemaController
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("SELECT * FROM personne INNER JOIN acteur ON personne.id_personne = acteur.id_personne WHERE id_acteur = :id");
         $requete->execute(["id" => $id]);
-        $requeteListFilms = $pdo->prepare("SELECT nom_film,date_sortie FROM film INNER JOIN jouer ON film.id_film = jouer.id_film WHERE id_acteur = :id");
+        $requeteListFilms = $pdo->prepare("SELECT * FROM film INNER JOIN jouer ON film.id_film = jouer.id_film WHERE id_acteur = :id");
         $requeteListFilms->execute(["id" => $id]);
         require "view/detailActeur.php";
     }
@@ -156,7 +156,7 @@ class CinemaController
         $photo = filter_input(INPUT_POST, 'photo', FILTER_SANITIZE_SPECIAL_CHARS);
         $pdo = Connect::seConnecter();
         $requete = $pdo->prepare("INSERT INTO realisateur(id_personne,photo_realisateur) VALUES((SELECT MAX(id_personne) FROM personne),:photo)");
-        $requete ->execute(['photo'=>$photo]) ;
+        $requete->execute(['photo' => $photo]);
         require 'view/formAjout/ajoutRealisateur.php';
     }
 

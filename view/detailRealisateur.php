@@ -1,43 +1,33 @@
-<?php ob_start() ?>
-<table class="table table-dark">
-    <thead>
-        <tr>
-            <th>NOM</th>
-            <th>PRENOM</th>
-            <th>DATE </th>
-            <th>SEXE</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-        foreach ($requete->fetchAll() as $realisateur) { ?>
-            <tr>
-                <td><?= $realisateur["nom_personne"] ?></td>
-                <td><?= $realisateur["prenom_personne"] ?></td>
-                <td><?= $realisateur["date_naissance_personne"] ?></td>
-                <td><?= $realisateur["sexe_personne"] ?></td>
-            </tr>
-        <?php } ?>
-    </tbody>
-</table>
-<h2>Liste des films realisé</h2>
-<table class="table table-dark">
-    <thead>
-        <tr>
-            <th>TITRE</th>
-            <th>DATE SORTIE</th>
-        </tr>
-    </thead>
-    <tbody>
+<?php ob_start();
+foreach ($requete->fetchAll() as $realisateur) { ?>
+    <div class="personne_detail_container">
+        <div class="personne_img_container">
+            <img src="<?= $realisateur["photo_realisateur"] ?>" alt="">
+        </div>
+        <div class="personne_info_container">
+            <h5>Nom : <?= $realisateur["nom_personne"] ?></h5>
+            <h5>Prenom : <?= $realisateur["prenom_personne"] ?></h5>
+            <h5>Date de naissance : <?= $realisateur["date_naissance_personne"] ?></h5>
+            <h5>Sexe : <?= $realisateur["sexe_personne"] ?></h5>
+        </div>
+
+    </div>
+<?php } ?>
+<div class="filmographie_container">
+    <h2>Filmographie</h2>
+    <div class="carts_container">
         <?php
         foreach ($requeteListFilms->fetchAll() as $film) { ?>
-            <tr>
-                <td><?= $film["nom_film"] ?></td>
-                <td><?= $film["date_sortie"] ?></td>
-            </tr>
+            <div class="cart">
+                <div class="cart_img">
+                    <img src="<?= $film["affiche"] ?>" alt="">
+                </div>
+                <h5 id="biographie_film_title"><?= $film["nom_film"]?></h5>
+                <h6><?= $film["date_sortie"] ?></h6>
+            </div>
         <?php } ?>
-    </tbody>
-</table>
+    </div>
+</div>
 
 <?php
 
