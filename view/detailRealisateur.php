@@ -14,7 +14,7 @@ foreach ($requete->fetchAll() as $realisateur) { ?>
     </div>
 <?php } ?>
 <div class="filmographie_container">
-    <h2>Filmographie</h2>
+    <h2>Filmographie </h2>
     <div class="carts_container">
         <?php
         foreach ($requeteListFilms->fetchAll() as $film) { ?>
