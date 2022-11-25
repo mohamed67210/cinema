@@ -27,7 +27,7 @@
             </div>
             <div id="search_bar">
                 <input type="text" name="search" id="search_input">
-                <a href="#">chercher</a>
+                <a href="#">Rechercher</a>
             </div>
         </div>
 
