@@ -233,30 +233,18 @@ class CinemaController
 
     public function updateLike($id)
     {
-        $_SESSION['id_film'][]= $id;
-        var_dump($_SESSION['id_film']);
-        $_SESSION['like'];
-        
-        var_dump($_SESSION['id_film']);
-        var_dump($_SESSION['like']);
-        die;
-
-        if (!empty($_SESSION['like'])) {
-            // var_dump($_SESSION['id_film']);
-            // die;
+        $_SESSION['id_film'][] = $id;
+        $arraycount = array_count_values($_SESSION['id_film']);
+        // echo $arraycount[$id];
+        // die;
+        // si le id du film existe qu'une seul fois dans la session id_film on execute la requete qui incremente le nombre de like +1 
+        if ($arraycount[$id] === 1) {
             $pdo = Connect::seConnecter();
             $requete = $pdo->prepare("UPDATE film SET nb_like = nb_like + 1 WHERE id_film = :id");
             $requete->execute(['id' => $id]);
 
-            $_SESSION['like'] = Null;
-
-
             header("location:index.php?action=detailFilm&id=$id");
-            $_SESSION['like'] = NULL;
         } else {
-            // var_dump($_SESSION['id_film']);
-            var_dump($_SESSION['id_film']);
-            die;
             header("location:index.php?action=detailFilm&id=$id");
         }
     }
