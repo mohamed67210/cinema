@@ -90,7 +90,7 @@ class CinemaController
         $requete->execute(["id" => $id]);
         $requeteGenre = $pdo->prepare("SELECT libelle FROM genre INNER JOIN appartenir ON genre.id_genre = appartenir.id_genre WHERE appartenir.id_film = :id");
         $requeteGenre->execute(['id' => $id]);
-        $requeteCasting = $pdo->prepare("SELECT nom_personne,prenom_personne,nom_personnage FROM personne INNER JOIN acteur ON personne.id_personne=acteur.id_personne INNER JOIN jouer ON jouer.id_acteur = acteur.id_acteur INNER JOIN role ON jouer.id_role=role.id_role WHERE id_film = :id");
+        $requeteCasting = $pdo->prepare("SELECT nom_personne,prenom_personne,nom_personnage,photo_acteur FROM personne INNER JOIN acteur ON personne.id_personne=acteur.id_personne INNER JOIN jouer ON jouer.id_acteur = acteur.id_acteur INNER JOIN role ON jouer.id_role=role.id_role WHERE id_film = :id");
         $requeteCasting->execute(["id" => $id]);
         require "view/detailFilm.php";
     }
@@ -139,8 +139,10 @@ class CinemaController
 
     public function ajoutActeur()
     {
+        $photo = filter_input(INPUT_POST, 'photo', FILTER_SANITIZE_SPECIAL_CHARS);
         $pdo = Connect::seConnecter();
-        $requetePersonne = $pdo->query("INSERT INTO acteur(id_personne) SELECT MAX(id_personne) FROM personne");
+        $requetePersonne = $pdo->prepare("INSERT INTO acteur(id_personne,photo_acteur) VALUES((SELECT MAX(id_personne) FROM personne),:photo)");
+        $requetePersonne->execute([':photo' => $photo]);
         require 'view/formAjout/ajoutActeur.php';
     }
 
@@ -186,7 +188,7 @@ class CinemaController
         $genre = filter_input(INPUT_POST, 'genre', FILTER_DEFAULT, FILTER_FORCE_ARRAY);
         // $genre = $_POST['genre'];
         $pdo = Connect::seConnecter();
-        $requete = $pdo->prepare("INSERT INTO film VALUES('',:nom_film,:date_sortie,:duree_minute,:resumee_film,:id_realisateur,:affiche)");
+        $requete = $pdo->prepare("INSERT INTO film VALUES('',:nom_film,:date_sortie,:duree_minute,:resumee_film,:id_realisateur,:affiche,0)");
         $requete->execute([
             'nom_film' => $titre,
             'date_sortie' => $date,

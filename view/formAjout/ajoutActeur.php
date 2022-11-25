@@ -6,7 +6,7 @@
         <input type="text" class="form-control" id="nomInput" placeholder="Entrer Nom" name="nom_acteur" required>
     </div>
     <div class="form-group">
-        <label for="prenomInput">prenom d'acteur</label>
+        <label for="prenomInput">Prenom d'acteur</label>
         <input type="text" class="form-control" id="prenomInput" placeholder="Entrer Prenom" name='prenom_acteur' required>
     </div>
     <div class="form-group">
@@ -20,6 +20,10 @@
             <option value="homme">Homme</option>
             <option value="femme">Femme</option>
         </select>
+    </div>
+    <div class="form-group">
+        <label for="ImageInput">Image (lien)</label>
+        <input type="text" class="form-control" id="ImageInput" placeholder="Entrer un lien" name="photo" required>
     </div>
     <button type="submit" class="btn btn-primary">Ajouter</button>
 </form>
