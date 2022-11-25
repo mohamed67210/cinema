@@ -1,32 +1,29 @@
 <?php ob_start() ?>
-<p>Il y'a  <?= $requete->rowCount() ?> acteurs</p>
-<table class="table table-dark">
-    <thead>
-        <tr>
-            <th>NOM</th>
-            <th>PRENOM</th>
-            <th>DATE DE NAISSANCE</th>
-            <th>SEXE</th>
-
-        </tr>
-    </thead>
-    <tbody>
+<p>Il y'a <?= $requete->rowCount() ?> acteurs</p>
+<div class="wrapper">
+    <div class="carts_container">
         <?php
-            foreach($requete->fetchAll() as $acteur) { ?> 
-                <tr>
-                    <td><a href="index.php?action=detailActeur&id=<?=$acteur["id_acteur"] ?>"><?= $acteur["nom_personne"] ?></a></td>
-                    <td><?= $acteur["prenom_personne"] ?></td>
-                    <td><?= $acteur["date_naissance_personne"] ?></td>
-                    <td><?= $acteur["sexe_personne"] ?></td>
-                </tr>    
-        <?php } ?>
-    </tbody>
-</table>
+        foreach ($requete->fetchAll() as $acteur) { ?>
 
+            <div class="cart">
+                <div class="cart_img">
+                    <a href="index.php?action=detailActeur&id=<?= $acteur["id_acteur"] ?>">
+                        <img src="<?= $acteur["photo_acteur"] ?>" alt="" srcset="">
+                    </a>
+                </div>
+                <a href="index.php?action=detailActeur&id=<?= $acteur["id_acteur"] ?>">
+                    <?= $acteur["prenom_personne"] . ' ' . $acteur["nom_personne"] ?>
+                </a>
+
+            </div>
+
+        <?php } ?>
+    </div>
+</div>
 <?php
 
 $titre = "liste des acteurs";
-$titre_secondaire ="liste des acteurs";
+$titre_secondaire = "liste des acteurs";
 $contenu = ob_get_clean();
 require "view/template.php";
- ?>
+?>

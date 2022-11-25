@@ -153,8 +153,10 @@ class CinemaController
 
     public function ajoutRealisateur()
     {
+        $photo = filter_input(INPUT_POST, 'photo', FILTER_SANITIZE_SPECIAL_CHARS);
         $pdo = Connect::seConnecter();
-        $requetePersonne = $pdo->query("INSERT INTO realisateur(id_personne) SELECT MAX(id_personne) FROM personne");
+        $requete = $pdo->prepare("INSERT INTO realisateur(id_personne,photo_realisateur) VALUES((SELECT MAX(id_personne) FROM personne),:photo)");
+        $requete ->execute(['photo'=>$photo]) ;
         require 'view/formAjout/ajoutRealisateur.php';
     }
 

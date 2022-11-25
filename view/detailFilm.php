@@ -32,13 +32,14 @@ foreach ($requete->fetchAll() as $film) { ?>
 <?php } ?>
 <div id="casting">
     <h4>Acteurs et actrice </h4>
-    <div id="acteurs_container">
+    <div class="carts_container">
         <?php
         foreach ($requeteCasting->fetchAll() as $acteur) { ?>
-            <div id="acteur_container">
-                <div id="img_acteur_detailfilm"><img src="<?= $acteur["photo_acteur"] ?>" alt="" srcset=""></div>
+            <div class="cart">
+                <div class="cart_img">
+                    <img src="<?= $acteur["photo_acteur"] ?>" alt="">
+                </div>
                 <h5><?= $acteur["prenom_personne"] . ' ' . $acteur["nom_personne"] ?></h5>
-                <p>Role :</p>
                 <h6><?= $acteur["nom_personnage"] ?></h6>
             </div>
         <?php } ?>
